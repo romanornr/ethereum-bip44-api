@@ -10,7 +10,7 @@ export class Bip44Router {
 
     /**
      * Creates an instance of Bip44Router.
-     * 
+     *
      * @memberOf Bip44Router
      */
     constructor(){
@@ -20,11 +20,11 @@ export class Bip44Router {
 
     /**
      * Get wallet address for user
-     * 
-     * @param {Request} req 
-     * @param {Response} res 
-     * @param {NextFunction} next 
-     * 
+     *
+     * @param {Request} req
+     * @param {Response} res
+     * @param {NextFunction} next
+     *
      * @memberOf Bip44Router
      */
     public fromPrivateSeed(req: Request, res: Response, next: NextFunction){
@@ -37,7 +37,7 @@ export class Bip44Router {
                 userid
             })
         }
-        let wallet = EthereumBip44.fromPrivateSeed('xprv9s21ZrQH143K4BX2reUURqR54XkNhbNkFhEiRQqFkzu5z7T1dp9eMGozFTgKVu5Bs6R8Wd8BuhcJ3rj3LvzJvkc9uBc5xdhstRfJgcTLsjk');
+        let wallet = EthereumBip44.fromPrivateSeed(process.env.ethereumPrivKey)
         let userWallet = wallet.getAddress(userid);
         res.status(200).
             send({

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const EthereumBip44 = require("ethereum-bip44");
 /**
@@ -34,7 +35,7 @@ class Bip44Router {
                 userid
             });
         }
-        let wallet = EthereumBip44.fromPrivateSeed('xprv9s21ZrQH143K4BX2reUURqR54XkNhbNkFhEiRQqFkzu5z7T1dp9eMGozFTgKVu5Bs6R8Wd8BuhcJ3rj3LvzJvkc9uBc5xdhstRfJgcTLsjk');
+        let wallet = EthereumBip44.fromPrivateSeed(process.env.ethereumPrivKey);
         let userWallet = wallet.getAddress(userid);
         res.status(200).
             send({
@@ -54,5 +55,4 @@ class Bip44Router {
 exports.Bip44Router = Bip44Router;
 const Bip44Routes = new Bip44Router();
 Bip44Routes.init();
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Bip44Routes.router;

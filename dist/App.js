@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
@@ -38,5 +39,4 @@ class App {
         this.express.use('/api/eth/getaddress', Bip44Router_1.default);
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = new App().express;
